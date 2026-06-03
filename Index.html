@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Vance Jacobson | Aerospace Engineer</title>
+    <style>
+        /* Modern Minimalist Design System */
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --secondary-bg: #1e293b;
+            --muted-text: #94a3b8;
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Fixed Anchor Link Target Spacing & Added Smooth Glide Transition */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background-color: rgba(15, 23, 42, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem;
+        }
+
+        .btn-download {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .btn-pdf-gen {
+            background-color: rgba(56, 189, 248, 0.1);
+            border: 2px solid transparent;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            color: var(--text-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-pdf-gen:hover {
+            background-color: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 2rem 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-bio {
+            font-size: 1.2rem;
+            color: var(--muted-text);
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Quick Stat Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .stat-card {
+            background-color: var(--secondary-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        /* Main Section Headers */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-top: 5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .info-card {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            color: var(--accent-color);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-date {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .details-block h4 {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.25rem;
+        }
+
+        .bullet-list {
+            list-style-type: none;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Inline Media Portals & Scroll Viewports */
+        .embedded-viewport {
+            margin-top: 2rem;
+            width: 100%;
+            height: 480px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .embedded-viewport iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .image-gallery-scroll {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--secondary-bg);
+        }
+
+        .gallery-img-wrapper {
+            flex: 0 0 45%;
+            min-width: 300px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .gallery-img-wrapper img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            background-color: #0f172a;
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-img-wrapper img:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-img-wrapper span {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--muted-text);
+            font-weight: 500;
+        }
+
+        .asset-actions {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-asset {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-asset:hover {
+            background-color: rgba(56, 189, 248, 0.08);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Lightbox Overlay Module */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-color);
+        }
+
+        @media print {
+            body { background-color: #ffffff !important; color: #000000 !important; }
+            header, .nav-buttons, .asset-actions, .contact-links, .embedded-viewport, .image-gallery-scroll { display: none !important; }
+            .info-card, .stat-card { background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; color: #000000 !important; page-break-inside: avoid; }
+            .bullet-list li, .hero-bio, .stat-card span, .stat-card h3 { color: #334155 !important; }
+            .tag { background-color: #f1f5f9 !important; color: #0f172a !important; border: 1px solid #cbd5e1 !important; }
+            .section-title::after { background-color: #0284c7 !important; }
+        }
+
+        @media (max-width: 900px) {
+            header { padding: 1rem 5%; flex-direction: column; gap: 1rem; }
+            nav a:not(.btn-download) { display: none; }
+            h1 { font-size: 2.5rem; }
+            .hero-container { padding-top: 4rem; }
+            .info-card { padding: 1.5rem; }
+            .gallery-img-wrapper { flex: 0 0 85%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Lucas Vance Jacobson</div>
+        <nav>
+            <a href="#experience">Experience</a>
+            <a href="#academic-projects">Academic Projects</a>
+            <a href="#hands-on-projects">Hands-On Builds</a>
+            <div class="nav-buttons">
+                <a href="LucasJacobsonResume05072026.pdf" download class="btn-download">View My Resume</a>
+                <button onclick="window.print()" class="btn-pdf-gen">Generate Website PDF</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero-container">
+        <!-- Hero Introduction -->
+        <section class="hero-content">
+            <h1>Aerospace Engineering Project Portfolio</h1>
+            <p class="hero-bio">
+                I map out fluid behavior and flight regimes using high-fidelity simulation tools like ANSYS Fluent and AVL, but I build my deepest technical intuition on the floor: whether assembly testing a turbine test rig, fabricating custom mechanical components, or modifying performance vehicle dynamics. I look for the elegant sweet spot where computational analysis meets physical reality.
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:Lvjacobson2004@gmail.com">📬 Lvjacobson2004@gmail.com</a>
+                <a href="tel:8593967673">📱 (859) 396-7673</a>
+            </div>
+        </section>
+
+        <!-- Quick Stats Quick-Scan Bar -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Education</h3>
+                <p>BS Aerospace Engineering</p>
+                <span style="font-size: 0.85rem; color: var(--muted-text);">University of Kentucky, 2026</span>
+            </div>
+            <div class="stat-card">
+                <h3>Academic Focus</h3>
+                <p>3.5 Cumulative GPA</p>
+                <span style="font-size: 0.85rem; color: var(--muted-text);">Dean's List / Provost Scholar</span>
+            </div>
+            <div class="stat-card">
+                <h3>Core Software</h3>
+                <p>ANSYS Fluent, AVL, CAD</p>
+                <span style="font-size: 0.85rem; color: var(--muted-text);">Inventor, OnShape, Fusion 360</span>
+            </div>
+            <div class="stat-card">
+                <h3>Practical Expertise</h3>
+                <p>CNC, G-Code, Machining</p>
+                <span style="font-size: 0.85rem; color: var(--muted-text);">Hands-On Fabrication</span>
+            </div>
+        </section>
+
+        <!-- Section 1: Professional Experience -->
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="content-list">
+
+                <!-- Role 1: GoRentals -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Detailer / Driver</h3>
+                            <div class="card-subtitle">GoRentals</div>
+                        </div>
+                        <div class="card-date">July 2025 – Sept 2025</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Vehicle Detailing</span>
+                        <span class="tag">Logistics & Transport</span>
+                        <span class="tag">Airport Operations</span>
+                        <span class="tag">VIP Client Relations</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>🚗 Detailing & Fleet Logistics</h4>
+                            <ul class="bullet-list">
+                                <li>Executed precision interior and exterior vehicle detailing tailored to high-priority luxury assets prior to customer arrival.</li>
+                                <li>Managed regional fleet positioning, driving transit routes between sister GoRentals hub locations to secure target vehicle models requested by upcoming clients.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>✈️ Airfield Operations & Observations</h4>
+                            <ul class="bullet-list">
+                                <li>Mastered local private airfield operation protocols, ensuring safe transit within strictly regulated parameter zones and perimeter boundaries.</li>
+                                <li>Interacted informally with transient military personnel on the flightline, gaining unique operational insights into Air Force and Navy airframes, including V-22 Osprey preventative engine-sealing procedures.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Role 2: UKY Materials Lab -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Research Assistant — Materials Lab</h3>
+                            <div class="card-subtitle">University of Kentucky</div>
+                        </div>
+                        <div class="card-date">June 2024 – July 2024</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">CNC Machining</span>
+                        <span class="tag">Stress Analysis</span>
+                        <span class="tag">Data Acquisition</span>
+                        <span class="tag">Tool Optimization</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>🔬 Data Acquisition & Stress Analysis</h4>
+                            <ul class="bullet-list">
+                                <li>Conducted primary lab research measuring mechanical stress profiles induced by perpendicular and parallel machining paths.</li>
+                                <li>Gained concrete understanding of sub-surface material stress concentrations caused by automated CNC machining parameter variations.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>⚙️ Tool Polishing & Metrology</h4>
+                            <ul class="bullet-list">
+                                <li>Executed precision polishing techniques on carbide machining toolheads to evaluate how edge finish reduces micro-fracture propagation.</li>
+                                <li>Maintained structural testing apparatus and cataloged datasets for advanced mechanical stress research tracking.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Role 3: Emblem Pros -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">CNC Laser Operator & Assembler</h3>
+                            <div class="card-subtitle">Emblem Pros (Ski Co. LLC)</div>
+                        </div>
+                        <div class="card-date">Oct 2021 – Dec 2023</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Laser Cutting</span>
+                        <span class="tag">GM Authorization</span>
+                        <span class="tag">Material Fabrication</span>
+                        <span class="tag">G-Code Processing</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>🏭 Precision CNC Production</h4>
+                            <ul class="bullet-list">
+                                <li>Operated precision industrial CNC laser cutters to process sheet metal, acrylics, and composite polymers under General Motors licensing authorization.</li>
+                                <li>Programmed and adjusted G-code path offsets on the fly to meet strict dimensional tolerances for complex architectural vectors.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>🔧 Assembly & Material Finishing</h4>
+                            <ul class="bullet-list">
+                                <li>Executed post-cut metal styling, filing, hand de-burring, and complex layered assemblies for high-end custom components.</li>
+                                <li>Managed high-volume custom production queues while maintaining strict structural quality validation limits.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Academic Projects -->
+        <section id="academic-projects">
+            <h2 class="section-title">Academic Projects</h2>
+            <div class="content-list">
+
+                <!-- Project 1: Capstone -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Hybrid Turbine Airfoil Optimization</h3>
+                            <div class="card-subtitle">Aerospace Engineering Capstone Team Project</div>
+                        </div>
+                        <div class="card-date">Aug 2025 – May 2026</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Thermal Management</span>
+                        <span class="tag">Rig Fabrication</span>
+                        <span class="tag">Structural Statics</span>
+                        <span class="tag">Experimental Validation</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>⚙️ Engineering Context & Architecture</h4>
+                            <ul class="bullet-list">
+                                <li>Collaborated on a 6-person team to optimize the internal structures for a jet engine low-pressure turbine (LPT) blade.</li>
+                                <li>Developed and evaluated 6 unique internal structural concepts under rigorous thermal, structural, and modal loading conditions.</li>
+                                <li>Designed and built a dedicated thermal test setup utilizing A36 stainless steel for the control volume boundary, speed tape to seal leakages, and cost-effective carbon steel for test pieces.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>🔥 Testing Methodology & Problem Solving</h4>
+                            <ul class="bullet-list">
+                                <li>Executed 60 experimental tests using 4 strategically mapped Type-K thermocouples: Main Inlet, Coolant Inlet, Airfoil Leading Edge, and Airfoil Trailing Edge.</li>
+                                <li>Spatially scanned temperatures across 5 evenly spaced span sections by systematically moving the LE and TE probes inward from 0.5" to 4.5" over 10 incremental 12-minute runs per design.</li>
+                                <li>Diagnosed a critical failure mode where internal heat soak degraded heat gun elements during the initial 12-minute cool down cycles; engineered an immediate process solution by integrating forced-air cooling fans to stabilize temperature profiles across consecutive runs.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Visual Snippet Gallery -->
+                    <div class="image-gallery-scroll">
+                        <div class="gallery-img-wrapper">
+                            <img src="Thermal_Box.png" alt="Test Rig Assembly CAD Profile">
+                            <span>Test Rig Assembly CAD Profile</span>
+                        </div>
+                        <div class="gallery-img-wrapper">
+                            <img src="GlimpseOfTestData.png" alt="Parametric Spatial Analysis Array Preview">
+                            <span>Spatial Analysis Array Sample</span>
+                        </div>
+                        <div class="gallery-img-wrapper">
+                            <img src="CompliedTestData.png" alt="Compiled Core Performance Matrix Data">
+                            <span>Compiled Thermal Performance Matrix</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: CFD Nozzle Validation -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Supersonic Nozzle Validation</h3>
+                            <div class="card-subtitle">Computational Fluid Dynamics Project</div>
+                        </div>
+                        <div class="card-date">Mar 2026 – May 2026</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">ANSYS Fluent</span>
+                        <span class="tag">Grid Independence Study</span>
+                        <span class="tag">Isentropic Theory</span>
+                        <span class="tag">Supersonic Flow</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>💻 Computational Physics & Solver Setup</h4>
+                            <ul class="bullet-list">
+                                <li>Validated a 2D converging-diverging nozzle fluid model in ANSYS Fluent against 1D isentropic theory, resolving exit Mach numbers to within 0.2% error and mass flow to &lt;0.01% deviation.</li>
+                                <li>Implemented a density-based implicit solver with Roe flux-difference splitting and second-order discretization to accurately map Prandtl-Meyer expansion waves and overexpanded flow behaviors.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>📊 Verification & Industry Standards</h4>
+                            <ul class="bullet-list">
+                                <li>Executed a time-intensive, industry-standard three-level grid independence study ranging from 1.2k to 20k cells, lowering discretization error to 0.06% to ensure mesh geography did not affect calculations.</li>
+                                <li>Integrated pressure differentials and momentum flux parameters to compute a net thrust of 5,297 N, matching analytical theory within 1.1%.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable Viewport window for the CFD Final Report PDF -->
+                    <div class="embedded-viewport">
+                        <iframe src="CFD_Nozzle_Final_Report.pdf" title="ANSYS Fluent Supersonic Nozzle Validation Technical Report"></iframe>
+                    </div>
+
+                    <div class="asset-actions">
+                        <a href="FFF-2.1-1-03295.cas.h5" download class="btn-asset">📊 Download ANSYS Fluent Case File (.cas.h5)</a>
+                    </div>
+                </article>
+
+                <!-- Project 3: Lunar Power Plant -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Lunar Surface Fission Power (LSFP) System</h3>
+                            <div class="card-subtitle">Systems Engineering Team Project</div>
+                        </div>
+                        <div class="card-date">Aug 2025 – Dec 2025</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Systems Engineering</span>
+                        <span class="tag">ConOps Mapping</span>
+                        <span class="tag">Interface Management</span>
+                        <span class="tag">Risk Allocation</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>🛰️ System Architecture & Framework</h4>
+                            <ul class="bullet-list">
+                                <li>Partnered with a 5-member team to map out a conceptual 40 kWe fission-based lunar surface power system designed for a 10-year mission life span.</li>
+                                <li>Owned core vertical architecture segments including the high-level Concept of Operations (ConOps), Allocation Matrix, Risk Assessment matrices, and interface boundaries.</li>
+                                <li>Decomposed mission-critical functional requirements spanning launch survivability indices (12 g vibration, 25 g landing shock) and massive lunar temperature swings.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>📐 Interface Mapping & Risk Balancing</h4>
+                            <ul class="bullet-list">
+                                <li>Formulated comprehensive N^2 Diagrams tracking complex inter-subsystem data pipelines, including reactor core thermal fluxes, PMAD telemetry outputs, and automated safety control loops.</li>
+                                <li>Evaluated technology readiness levels (TRL) across key subsystems, identifying low-TRL software vectors like autonomous Fault Detection, Isolation, and Recovery (FDIR) as primary developmental targets.</li>
+                                <li>Assembled a comprehensive Risk Matrix optimizing structural, regulatory, and environmental mitigation protocols to address long-term operational challenges in deep space environments.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable Viewport window for the Systems Presentation PDF -->
+                    <div class="embedded-viewport">
+                        <iframe src="Final Presentation Team 1.pdf" title="Lunar Surface Fission Power Architecture Slides Deck"></iframe>
+                    </div>
+                </article>
+
+                <!-- Project 4: Flight Dynamics -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Aircraft Modeling & Stability Simulation</h3>
+                            <div class="card-subtitle">Flight Dynamics Team Project</div>
+                        </div>
+                        <div class="card-date">Feb 2025 – May 2025</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Athena Vortex Lattice (AVL)</span>
+                        <span class="tag">3D Geometric Modeling</span>
+                        <span class="tag">Aerodynamic Matrices</span>
+                        <span class="tag">State-Space Linearization</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>🛩️ Geometric Translation & Aerodynamics</h4>
+                            <ul class="bullet-list">
+                                <li>Designed the initial 3D physical layout for a personal transport aircraft concept inside OnShape to comply with stability goals.</li>
+                                <li>Managed the data translation pipeline from the raw 3D CAD workspace into structured text coordinates, geometric configurations, and component dimensions for the Athena Vortex Lattice (AVL) engine.</li>
+                                <li>Generated stability derivative matrices in AVL to capture aerodynamic forces and static load boundaries across longitudinal and lateral flight configurations.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>📊 Linearization & Flight Modes</h4>
+                            <ul class="bullet-list">
+                                <li>Extracted specialized raw output parameters from AVL to develop and linearize an explicit state-space matrix model mapping over 5 separate dynamic flight modes under varying trim flight envelopes.</li>
+                                <li>Fed state-space configurations directly into MATLAB to simulate transient initial conditions and forced control surfaces inputs, confirming handling parameters across diverse flight regimes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable Viewport window for the Flight Dynamics Presentation PDF -->
+                    <div class="embedded-viewport">
+                        <iframe src="Final_Presentation_AER345.pdf" title="Flight Dynamics Simulation Slides Deck"></iframe>
+                    </div>
+                </article>
+
+                <!-- Project 5: Spar Design -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Parametric Wing Spar Structural Analyzer</h3>
+                            <div class="card-subtitle">Aerospace Structures Team Project</div>
+                        </div>
+                        <div class="card-date">Aug 2024 – Dec 2024</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Excel Core Architecture</span>
+                        <span class="tag">Parametric Optimization</span>
+                        <span class="tag">Stress Distribution</span>
+                        <span class="tag">Structural Mechanics</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>📊 Parametric Solver & Load Cases</h4>
+                            <ul class="bullet-list">
+                                <li>Engineered a custom multi-variable parametric Excel model to calculate structural stress gradients over a 95.8 ft high-aspect commercial wing modeled on a Boeing 737 platform.</li>
+                                <li>Configured logic arrays resolving three discrete load environments: static ground loads, takeoff forces, and single-engine-out scenarios tracking structural weight thresholds against rudder authority.</li>
+                                <li>Calculated cross-sectional area, structural envelope volume (requiring user integration of internal cross-sectional span height), and explicit local Moment of Inertia (MOI) parameters to evaluate hollow, I-beam, and H-beam configurations.</li>
+                                <li>Designed the data output engine to dynamically map local bending moments, angular wing deflections, and real-time linear deflection charts along the entire span.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>📈 System Constraints & Design Critique</h4>
+                            <ul class="bullet-list">
+                                <li>Integrated dynamic engine placement parameters as an independent variable constraint, fixing evaluations at 30 ft from the wing root across baseline load models.</li>
+                                <li>Embedded modular data matrices mapping structural safety factors and direct material weight/cost metrics, requiring complete decoupling profiles to prompt manual baseline validation.</li>
+                                <li><strong style="color: var(--accent-color);">Engineering Post-Mortem & Future Intent:</strong> Identified pipelines to build out next: specifically proposing automated lookup arrays to insert material yield constants on selector change, alongside integrated geometry modules to eliminate manual MOI and volume pre-integration.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Live Embedded Interactive Excel Engine Viewport -->
+                    <div class="embedded-viewport">
+                        <iframe frameborder="0" scrolling="no" src="https://luky-my.sharepoint.com/personal/lvja222_uky_edu/_layouts/15/Doc.aspx?sourcedoc={f18232c1-7bfe-4533-9b3f-6fa532296701}&action=embedview&AllowTyping=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0"></iframe>
+                    </div>
+
+                    <div class="asset-actions">
+                        <a href="Plane Wing.xlsb" download class="btn-asset">📈 Download Full Parametric Solver (Plane Wing.xlsb)</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Section 3: Hands-On Projects -->
+        <section id="hands-on-projects">
+            <h2 class="section-title">Hands-On Builds</h2>
+            <div class="content-list">
+
+                <!-- Build 1: Vehicle Mods -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Performance Optimization Timeline — 2013 Scion FR-S</h3>
+                            <div class="card-subtitle">Personal Mechanical Build</div>
+                        </div>
+                        <div class="card-date">Dec 2020 – Present</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">ECU Tuning (OFT)</span>
+                        <span class="tag">Exhaust Gas Dynamics</span>
+                        <span class="tag">Suspension Geometry</span>
+                        <span class="tag">System Engineering</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>💨 Fluid Flow & Powertrain Optimization</h4>
+                            <ul class="bullet-list">
+                                <li>Targeted and systematically resolved the factory FA20 boxer engine torque dip through a calculated, interconnected performance modification timeline.</li>
+                                <li>Integrated a high-performance K&N cold air intake with Tomei Unequal Length (UEL) headers and an Invidia N1 cat-back exhaust system to streamline volumetric efficiency and flow dynamics.</li>
+                                <li>Flashed the engine control unit (ECU) via an OpenFlash Tablet (OFT) to map a custom timing map optimized for high-octane E85 fuel blend behaviors.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>🏁 Handling Dynamics & Mechanics</h4>
+                            <ul class="bullet-list">
+                                <li>Overhauled suspension geometry by upgrading factory struts with adjustable Tein Flex-Z coilovers alongside wider Michelin Pilot Sport 4S tires for enhanced lateral mechanical grip.</li>
+                                <li>Executed complete wear-item overhauls including custom rotor profiling and compound brake pad compounds to handle accelerated thermal loading cycles.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Build 2: Deck Remodel -->
+                <article class="info-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Back Deck Mechanical Remodel</h3>
+                            <div class="card-subtitle">Practical Fabrication Project</div>
+                        </div>
+                        <div class="card-date">May 2025 – July 2025</div>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tag">Structural Assembly</span>
+                        <span class="tag">Mechanical Fasteners</span>
+                        <span class="tag">Precision Layout</span>
+                        <span class="tag">Hands-On Aptitude</span>
+                    </div>
+                    <div class="details-grid">
+                        <div class="details-block">
+                            <h4>🔨 Structural Assembly & Upgrades</h4>
+                            <ul class="bullet-list">
+                                <li>Demolished a failing back deck framework and fully reconstructed structural joists, framing layout, and support configurations.</li>
+                                <li>Applied classic mechanical fastening techniques and hand-tool precision, translating a fundamental understanding of load paths into structural assembly lines.</li>
+                            </ul>
+                        </div>
+                        <div class="details-block">
+                            <h4>📐 Practical Mechanical Intuition</h4>
+                            <ul class="bullet-list">
+                                <li>Gained core mechanical aptitude out in the field, practicing layout alignment, physical material grading, and spatial leveling.</li>
+                                <li>Bridged the gap between abstract academic formula derivations and practical, manual problem-solving outside an engineering lab space.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Window Overlay -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded Data View">
+    </div>
+
+    <!-- Lightbox Script Module -->
+    <script>
+        document.querySelectorAll('.image-gallery-scroll img').forEach(image => {
+            image.addEventListener('click', () => {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
